@@ -37,7 +37,7 @@ public class EnderecoService {
 		}
 	}
 	
-	public boolean deleteChip (Long id) {
+	public boolean deleteEndereco (Long id) {
 		Optional<Endereco> existeEndereco = enderecoRepository.findById(id);
 		if (existeEndereco.isPresent()) {
 			enderecoRepository.deleteById(id);
@@ -51,5 +51,6 @@ public class EnderecoService {
 
 	
 	
+
 
 
