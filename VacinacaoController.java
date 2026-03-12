@@ -39,13 +39,13 @@ public class VacinacaoController {
 		}
 	}
 	
-	@PostMapping("/Vacinacao")
+	@PostMapping("/{id}")
 	public ResponseEntity<Vacinacao> criarVacinacao(@RequestBody Vacinacao vacinacao) {
 		Vacinacao criarVacinacao = vacinacaoService.saveVacinacao(vacinacao);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarVacinacao);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/{id}")
 	public ResponseEntity<Vacinacao> alteraVacinacao(@PathVariable Long id,
 			@RequestBody Vacinacao vacinacao) {
 		Vacinacao alteraVacinacao = vacinacaoService.alteraVacinacao(id, vacinacao);
@@ -56,7 +56,7 @@ public class VacinacaoController {
 		}
 	}
 	
-	@DeleteMapping("/Vacinacao")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteVacinacao (@PathVariable Long id) {
 		boolean deleted = vacinacaoService.deleteVacinacao(id);
 		if(deleted) {
@@ -70,3 +70,4 @@ public class VacinacaoController {
 
 
 }
+
