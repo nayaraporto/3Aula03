@@ -39,13 +39,13 @@ public class RacaController {
 		}
 	}
 	
-	@PostMapping("/Raca")
+	@PostMapping("/{id}")
 	public ResponseEntity<Raca> criarRaca(@RequestBody Raca raca) {
 		Raca criarRaca = racaService.saveRaca(raca);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarRaca);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/{id}")
 	public ResponseEntity<Raca> alteraRaca(@PathVariable Long id,
 			@RequestBody Raca raca) {
 		Raca alteraRaca = racaService.alteraRaca(id, raca);
@@ -56,7 +56,7 @@ public class RacaController {
 		}
 	}
 	
-	@DeleteMapping("/Raca")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteRaca (@PathVariable Long id) {
 		boolean deleted = racaService.deleteRaca(id);
 		if(deleted) {
@@ -71,6 +71,7 @@ public class RacaController {
 }
 
 	
+
 
 
 
