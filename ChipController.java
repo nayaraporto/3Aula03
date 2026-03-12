@@ -40,13 +40,13 @@ public class ChipController {
 		}
 	}
 	
-	@PostMapping("/")
+	@PostMapping("/{id}")
 	public ResponseEntity<Chip> criarChip(@RequestBody Chip chip) {
 		Chip criarChip = chipService.saveChip(chip);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarChip);
 	}
 	
-	@PutMapping("{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Chip> alteraChip(@PathVariable Long id,
 			@RequestBody Chip chip) {
 		Chip alteraChip = chipService.alteraChip(id, chip);
@@ -57,7 +57,7 @@ public class ChipController {
 		}
 	}
 	
-	@DeleteMapping("{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteChip (@PathVariable Long id) {
 		boolean deleted = chipService.deleteChip(id);
 		if(deleted) {
@@ -70,5 +70,6 @@ public class ChipController {
 	
 
 }
+
 
 
