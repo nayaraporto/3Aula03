@@ -24,7 +24,7 @@ public class ChipController {
 		this.chipService = chipService;
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("/")
 	public ResponseEntity<List<Chip>> getAllChip() {
 		List<Chip> chips = chipService.getAllChip();
 		return ResponseEntity.ok(chips);
@@ -70,4 +70,5 @@ public class ChipController {
 	
 
 }
+
 
