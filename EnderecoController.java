@@ -39,13 +39,13 @@ public class EnderecoController {
 		}
 	}
 	
-	@PostMapping("/Endereco")
+	@PostMapping("{id}")
 	public ResponseEntity<Endereco> criarEndereco(@RequestBody Endereco endereco) {
 		Endereco criarEndereco = enderecoService.saveEndereco(endereco);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarEndereco);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("{id}")
 	public ResponseEntity<Endereco> alteraEndereco(@PathVariable Long id,
 			@RequestBody Endereco endereco) {
 		Endereco alteraEndereco = enderecoService.alteraEndereco(id, endereco);
@@ -56,7 +56,7 @@ public class EnderecoController {
 		}
 	}
 	
-	@DeleteMapping("/Endereco")
+	@DeleteMapping("{id}")
 	public ResponseEntity<String> deleteEndereco (@PathVariable Long id) {
 		boolean deleted = enderecoService.deleteEndereco(id);
 		if(deleted) {
@@ -72,5 +72,6 @@ public class EnderecoController {
 
 	
 	
+
 
 
