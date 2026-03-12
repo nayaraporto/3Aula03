@@ -39,13 +39,13 @@ public class PetController {
 			}
 		}
 		
-		@PostMapping("{id}")
+		@PostMapping("/{id}")
 		public ResponseEntity<Pet> criarPet(@RequestBody Pet pet) {
 			Pet criarPet = petService.savePet(pet);
 			return ResponseEntity.status(HttpStatus.CREATED).body(criarPet);
 		}
 		
-		@PutMapping("{id}")
+		@PutMapping("/{id}")
 		public ResponseEntity<Pet> alteraPet(@PathVariable Long id,
 				@RequestBody Pet pet) {
 			Pet alteraPet = petService.alteraPet(id, pet);
@@ -56,7 +56,7 @@ public class PetController {
 			}
 		}
 		
-		@DeleteMapping("{id}")
+		@DeleteMapping("/{id}")
 		public ResponseEntity<String> deletePet (@PathVariable Long id) {
 			boolean deleted = petService.deletePet(id);
 			if(deleted) {
@@ -71,6 +71,7 @@ public class PetController {
 	}
 
 		
+
 
 
 
