@@ -39,13 +39,13 @@ public class TipoController {
 		}
 	}
 	
-	@PostMapping("/Tipo")
+	@PostMapping("/{id}")
 	public ResponseEntity<Tipo> criarTipo(@RequestBody Tipo tipo) {
 		Tipo criarTipo = tipoService.saveTipo(tipo);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarTipo);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/{id}")
 	public ResponseEntity<Tipo> alteraTipo(@PathVariable Long id,
 			@RequestBody Tipo tipo) {
 		Tipo alteraTipo = tipoService.alteraTipo(id, tipo);
@@ -56,7 +56,7 @@ public class TipoController {
 		}
 	}
 	
-	@DeleteMapping("/Tipo")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteTipo (@PathVariable Long id) {
 		boolean deleted = tipoService.deleteTipo(id);
 		if(deleted) {
@@ -71,4 +71,5 @@ public class TipoController {
 }
 
 	
+
 
