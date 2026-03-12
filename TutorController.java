@@ -39,13 +39,13 @@ public class TutorController {
 		}
 	}
 	
-	@PostMapping("/Tutor")
+	@PostMapping("/{id}")
 	public ResponseEntity<Tutor> criarTutor(@RequestBody Tutor tutor) {
 		Tutor criarTutor = tutorService.saveTutor(tutor);
 		return ResponseEntity.status(HttpStatus.CREATED).body(criarTutor);
 	}
 	
-	@PutMapping("/")
+	@PutMapping("/{id}")
 	public ResponseEntity<Tutor> alteraTutor(@PathVariable Long id,
 			@RequestBody Tutor tutor) {
 		Tutor alteraTutor = tutorService.alteraTutor(id, tutor);
@@ -56,7 +56,7 @@ public class TutorController {
 		}
 	}
 	
-	@DeleteMapping("/Tutor")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteTutor (@PathVariable Long id) {
 		boolean deleted = tutorService.deleteTutor(id);
 		if(deleted) {
@@ -70,3 +70,4 @@ public class TutorController {
 
 
 }
+
